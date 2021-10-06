@@ -83,7 +83,7 @@ export const SmallContainer = styled.div`
     background-color: var(--Dark-blue) ;
     display: grid ;
     grid-template-columns: 1fr ;
-    grid-template-rows: 1fr 4fr ;
+    grid-template-rows: 40px 3fr ;
     background-color: ${(props) => `var(--${colors[props.index]})`} ;
 `
 
@@ -99,7 +99,16 @@ export const SmallContainerInfo = styled.div`
 
 
 export const SmallContainerDesign = styled.div`
-    
     border-top-left-radius: 10px ;
     border-top-right-radius: 10px ;
+    overflow: hidden ;
+    position: relative ;
+    & > img {
+        position: absolute ;
+        object-fit: contain;
+        max-height: 60px ;
+        max-width: 60px ;
+        top: 0px ;
+        right: 20px ;
+    }
 `

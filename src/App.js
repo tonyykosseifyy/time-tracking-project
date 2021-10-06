@@ -11,6 +11,15 @@ import JeremyImage from './assets/image-jeremy.png' ;
 import axios from "./axios" ;
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import IconButton from '@mui/material/IconButton';
+import work from './assets/icon-work.svg' ;
+import exercise from './assets/icon-exercise.svg' ;
+import ellipsis from './assets/icon-ellipsis.svg' ;
+import play from './assets/icon-play.svg' ;
+import social from './assets/icon-social.svg' ;
+import study from './assets/icon-study.svg' ;
+import selfCare from './assets/icon-self-care.svg' ;
+
+const images = [ work , play ,study, exercise,social, selfCare] ;
 
 function App() {
   const [ info , setInfo ] = useState([]) ;
@@ -44,13 +53,13 @@ function App() {
        { info ? info.map((item, index) => (
         <SmallContainer key={index} index={index} >
 			<SmallContainerDesign >
-
+				<img src={images[index]} alt='work' />
 			</SmallContainerDesign>
            	<SmallContainerInfo>
 				<div className="top">
 					<h3>{item.title}</h3>
-					<IconButton>
-						<MoreHorizIcon />
+					<IconButton sx={{color: "white"}}>
+						<MoreHorizIcon sx={{color: "white"}} />
 					</IconButton>
 				</div>
 				<div className="bottom">
