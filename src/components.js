@@ -61,5 +61,45 @@ export const UserInfo = styled.div`
 `
 export const DateInfo = styled.div`
     display: flex ;
+    flex-direction: column ;
+    justify-content : center ;
+    padding: 20px ;
+`
+
+export const DateInfoSpan = styled.span`
+    color: #6C70AE ;
+    transition: .3s ease-out ;
+    cursor: pointer ;
+    margin: 5px 0 ;
+    width: fit-content ;
+
+    &:hover {
+        color: white;
+    }
+`
+const colors = ["light-red-work" , "Soft-blue-play" , "light-red-study" , "Lime-green-exercise", "Violet-social", "Soft-orange-selfcare"] ;
+export const SmallContainer = styled.div`
+    border-radius: 10px ;
+    background-color: var(--Dark-blue) ;
+    display: grid ;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 1fr 4fr ;
+    background-color: ${(props) => `var(--${colors[props.index]})`} ;
+`
+
+export const SmallContainerInfo = styled.div`
+    padding: 20px ;
+    border-radius: 10px ;
+    background-color: var(--Dark-blue) ;
+
+    & > div > * {
+        font-weight: 400 ;
+    }
+`
+
+
+export const SmallContainerDesign = styled.div`
     
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px ;
 `

@@ -1,17 +1,25 @@
 import { useState , useEffect } from 'react' ;
 import './App.css';
-import { AppWrapper , ContentWrapper , BigContainer , UserInfo , DataInfo, DateInfo } from './components' ;
+import 
+{ 
+	AppWrapper , ContentWrapper , BigContainer , 
+	UserInfo , DateInfo , DateInfoSpan , SmallContainer , 
+	SmallContainerInfo , SmallContainerDesign 
+} 
+from './components' ;
 import JeremyImage from './assets/image-jeremy.png' ;
 import axios from "./axios" ;
-
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import IconButton from '@mui/material/IconButton';
 
 function App() {
-  const [ data , setData ] = useState({}) ;
+  const [ info , setInfo ] = useState([]) ;
   useEffect(() => {
     axios.get("/api/user")
-    .then(({ data }) => console.log(data))
+    .then(({ data }) => setInfo(data))
     .catch((error) => console.log(error))
   }, [])
+  console.log(info)
   return (
     <AppWrapper>
       <ContentWrapper>
@@ -26,9 +34,33 @@ function App() {
           </UserInfo>
 
           <DateInfo>
-
+            <DateInfoSpan>Daily</DateInfoSpan>
+            <DateInfoSpan>Weekly</DateInfoSpan>
+            <DateInfoSpan>Monthly</DateInfoSpan>
           </DateInfo>
+
         </BigContainer>
+
+       { info ? info.map((item, index) => (
+        <SmallContainer key={index} index={index} >
+			<SmallContainerDesign >
+
+			</SmallContainerDesign>
+           	<SmallContainerInfo>
+				<div className="top">
+					<h3>{item.title}</h3>
+					<IconButton>
+						<MoreHorizIcon />
+					</IconButton>
+				</div>
+				<div className="bottom">
+
+				</div>
+			</SmallContainerInfo>
+           
+        </SmallContainer>
+       )) : null } 
+
       </ContentWrapper>
     </AppWrapper>
   );
