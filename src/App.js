@@ -18,8 +18,11 @@ function App() {
         <BigContainer>
           <UserInfo>
             <img src={JeremyImage} alt="Jeremy Robson" />
-            <span>Report For</span>
-            <h1>Jeremy <br/> Robson</h1>
+            <div>
+              <span>Report For</span>
+              <h1>Jeremy <br/> Robson</h1>
+            </div>
+            
           </UserInfo>
 
           <DateInfo>

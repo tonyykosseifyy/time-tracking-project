@@ -47,17 +47,19 @@ export const UserInfo = styled.div`
         margin-bottom: 30px ;
     }
 
-    & > * {
+    & > div > * {
         font-weight: 300 ;
     }
-    & > span {
+    & > div > span {
         opacity: .7 ;
         font-size: .75rem ;
-        margin-bottom: 5px ;
     }
-    & > h1 {
+    & > div > h1 {
         font-size: 2rem ;
+        margin-top: 5px;
     }
 `
 export const DateInfo = styled.div`
+    display: flex ;
+    
 `
