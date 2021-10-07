@@ -9,3 +9,26 @@
     flex-direction: column ;
     align-items: flex-start ;
 }
+
+
+.bottom > h1 {
+    font-size: 2.5rem ;
+    font-weight: 300 !important ;
+    line-height: 50px ;
+}
+
+.bottom > p {
+    font-size: .75rem ;
+    opacity: .8 ;
+}
+
+@media screen and (max-width: 765px ) {
+    .bottom > h1 {
+        font-size: 1.7rem ;
+    }
+    .bottom {
+        flex-direction: row ;
+        align-items: center ;
+        justify-content: space-between ;
+    }
+}

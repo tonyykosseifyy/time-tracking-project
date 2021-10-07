@@ -20,9 +20,11 @@ import study from './assets/icon-study.svg' ;
 import selfCare from './assets/icon-self-care.svg' ;
 
 const images = [ work , play ,study, exercise,social, selfCare] ;
+const dates = ["Daily" , "Weekly" , "Monthly"] ;
 
 function App() {
   const [ info , setInfo ] = useState([]) ;
+  const [ time , setTime ] = useState("weekly") ;
   useEffect(() => {
     axios.get("/api/user")
     .then(({ data }) => setInfo(data))
@@ -43,9 +45,11 @@ function App() {
           </UserInfo>
 
           <DateInfo>
-            <DateInfoSpan>Daily</DateInfoSpan>
-            <DateInfoSpan>Weekly</DateInfoSpan>
-            <DateInfoSpan>Monthly</DateInfoSpan>
+			  {
+				  dates.map((item , index) => (
+					<DateInfoSpan key={index} onClick={() => setTime(item.toLowerCase())} active={time === item.toLowerCase()}>{item}</DateInfoSpan>
+				  ))
+			  }
           </DateInfo>
 
         </BigContainer>
@@ -55,7 +59,8 @@ function App() {
 			<SmallContainerDesign >
 				<img src={images[index]} alt='work' />
 			</SmallContainerDesign>
-           	<SmallContainerInfo>
+
+			<SmallContainerInfo>
 				<div className="top">
 					<h3>{item.title}</h3>
 					<IconButton sx={{color: "white"}}>
@@ -63,7 +68,8 @@ function App() {
 					</IconButton>
 				</div>
 				<div className="bottom">
-
+					<h1>{item.timeframes[time].current}hrs</h1>
+					<p>Last {time !=="daily" ? time.charAt(0).toUpperCase() + time.slice(1).replace("ly" , "") : "Day"} - {item.timeframes[time].previous}hrs</p>
 				</div>
 			</SmallContainerInfo>
            

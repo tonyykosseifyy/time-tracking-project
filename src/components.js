@@ -4,11 +4,16 @@ import styled from 'styled-components' ;
 export const AppWrapper = styled.main`
     background-color: var(--Very-dark-blue) ;
     color: white ;
-    @media (min-width: 768px) {
-        display: grid ;
-        place-items: center ;
-        height: 100vh ;
-        width: 100vw ;
+    display: grid ;
+    place-items: center ;
+    height: 100vh ;
+    width: 100vw ;
+    padding: 0 ;
+    @media (max-width: 765px) {
+        display: block ;
+        padding: 40px 10px ;
+        width: auto;
+        height: auto ;
     }
 `
 
@@ -20,6 +25,17 @@ export const ContentWrapper = styled.section`
     width: 90vw ;
     max-width: 900px ;
     height: 400px ;
+
+    @media (max-width: 765px) {
+        display: flex ;
+        flex-direction: column ;
+        width: 100% ;
+        height: auto ;
+
+        & > div {
+            min-height: 190px ;
+        }
+    }
 `
 
 export const BigContainer = styled.div`
@@ -29,6 +45,10 @@ export const BigContainer = styled.div`
     grid-template-columns: 1fr ;
     grid-template-rows: 2.5fr 1fr ;
     grid-row: 1/3 ;
+
+    @media (max-width: 765px) {
+        grid-template-rows: 2fr 1fr ;
+    }
 `
 
 export const UserInfo = styled.div`
@@ -39,7 +59,6 @@ export const UserInfo = styled.div`
     align-items: flex-start ;
     padding: 20px ;
     
-
     & > img {
         object-fit: contain ;
         max-height: 80px ;
@@ -58,16 +77,40 @@ export const UserInfo = styled.div`
         font-size: 2rem ;
         margin-top: 5px;
     }
+    @media (max-width:765px) {
+        flex-direction: row ;
+        align-items: center ;
+
+        & > div {
+            margin-left: 15px ;
+        }
+        & > img {
+            margin-bottom: 0 ;
+        }
+        & br {
+            display: none ;
+        }
+        & > div > h1 {
+            font-size: 1.5rem ;
+            margin-top: 0 ;
+        }
+    }
+    
 `
 export const DateInfo = styled.div`
     display: flex ;
     flex-direction: column ;
     justify-content : center ;
     padding: 20px ;
+
+    @media (max-width: 765px) {
+        flex-direction: row ;
+        justify-content: space-between ;
+    }
 `
 
 export const DateInfoSpan = styled.span`
-    color: #6C70AE ;
+    color: ${(props) => props.active ? "white" : "#6C70AE"} ;
     transition: .3s ease-out ;
     cursor: pointer ;
     margin: 5px 0 ;
@@ -76,6 +119,7 @@ export const DateInfoSpan = styled.span`
     &:hover {
         color: white;
     }
+
 `
 const colors = ["light-red-work" , "Soft-blue-play" , "light-red-study" , "Lime-green-exercise", "Violet-social", "Soft-orange-selfcare"] ;
 export const SmallContainer = styled.div`
@@ -91,7 +135,15 @@ export const SmallContainerInfo = styled.div`
     padding: 20px ;
     border-radius: 10px ;
     background-color: var(--Dark-blue) ;
+    display: flex ;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: .3s ease-out ;
 
+    &:hover {
+        background-color: #34397B ;
+    }
     & > div > * {
         font-weight: 400 ;
     }
