@@ -11,9 +11,12 @@ export const AppWrapper = styled.main`
     padding: 0 ;
     @media (max-width: 765px) {
         display: block ;
-        padding: 40px 10px ;
+        padding: 55px 30px ;
         width: auto;
         height: auto ;
+    }
+    @media (max-width: 500px) {
+        padding: 40px 10px ;
     }
 `
 
@@ -91,7 +94,7 @@ export const UserInfo = styled.div`
             display: none ;
         }
         & > div > h1 {
-            font-size: 1.5rem ;
+            font-size: 1.3rem ;
             margin-top: 0 ;
         }
     }
